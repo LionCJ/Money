@@ -165,8 +165,12 @@ class PayCard:
                                                                  bank_info[k]["interest"],
                                                                  bank_info[k]["amount"] - bank_info[k]["interest"]))
             bank_info = {}
+            bak_text = ""
+            for bak_bank in banks_list:
+                bak_text = bak_text + str(bak_bank) + "  "
+            print("免息银行列表：" + bak_text)
 
-        text = "\n 总刷卡金额为：{} ，总利息为：{} ，总实际到账：{}".format(amount_sum, interest_sum, amount_sum - interest_sum)
+        text = "\n 总刷卡金额为：{} ，总利息为：{} ，总实际到账：{}".format(amount_sum, round(interest_sum,2), amount_sum - interest_sum)
         return text
 
     def test(self):
